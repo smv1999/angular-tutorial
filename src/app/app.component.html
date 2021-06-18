@@ -1,9 +1,11 @@
 <!-- Toolbar -->
 <div>
   <h2>{{title}}</h2>
-  <div *ngFor='let color of colors'>
-    {{color}}
+  <div *ngFor='let color of colors; let i =  index'>
+    {{i}},{{color}}
+  </div>
+  <div *ngFor='let car of cars'>
+    {{car.make}} {{car.model}} with a mileage of {{car.miles}}
   </div>
 </div>
-
 <router-outlet></router-outlet>

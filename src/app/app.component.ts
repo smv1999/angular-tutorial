@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransportationService } from './transportation.service';
 import { Car } from '../utilities/car';
 
 @Component({
@@ -9,8 +10,9 @@ import { Car } from '../utilities/car';
 export class AppComponent {
   title = 'Angular Tutorial';
   colors: string[] = ["Red", "Blue", "Green"];
-  subaru: Car = { make: 'Subaru', model: 'Outback', miles: 58232 };
-  honda: Car = { make: 'Honda', model: 'Accord', miles: 39393 };
-  bmw: Car = { make: 'BMW', model: 'X3', miles: 4400 };
-  cars: Car[] = [this.subaru, this.honda, this.bmw];
+  
+  cars : Car[];
+  constructor(private transportationService : TransportationService) {
+    this.cars = this.transportationService.getCars();
+  }
 }
